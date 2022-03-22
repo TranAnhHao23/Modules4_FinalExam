@@ -62,6 +62,7 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView("create");
         if (bindingResult.hasFieldErrors()) {
             modelAndView.addObject("message", "Create Fail !!!");
+            modelAndView.addObject("countries", countryService.findAll());
             return modelAndView;
         }
         City city1 = cityService.save(city);
@@ -86,6 +87,7 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView("edit");
         if (bindingResult.hasFieldErrors()) {
             modelAndView.addObject("message", "Update Fail!!!");
+            modelAndView.addObject("countries", countryService.findAll());
             return modelAndView;
         }
         city.setIdCity(id);
